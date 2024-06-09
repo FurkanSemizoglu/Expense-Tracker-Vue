@@ -1,6 +1,6 @@
 <template>
   <h4>Your Balance</h4>
-  <h1 id="balance">$0.00</h1>
+  <h1 id="balance">$ {{ props.balance }}</h1>
 </template>
 
 
@@ -10,7 +10,7 @@ import {defineProps} from 'vue';
 
 const props = defineProps({
   balance : {
-    type : number,
+    type : Number,
     required : true
   }
 })

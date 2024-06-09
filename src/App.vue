@@ -7,6 +7,9 @@ import AddTransaction from "./components/AddTransaction.vue";
 
 import { ref, computed } from 'vue';
 
+
+
+
 const dummyTransactions = ref([
   { id: 1, text: "Flower", amount: -20 },
   { id: 2, text: "Salary", amount: 300 },
@@ -22,12 +25,38 @@ const checker = () => {
 const totalBalance = computed(() => {
 
   let total = 0;
-  dummyTransactions.forEach(element => {
+  dummyTransactions.value.forEach(element => {
     total += element.amount;
   });
   return total;
 });
 
+
+const income = computed ( () => {
+  let income = 0;
+  dummyTransactions.value.forEach(element => {
+    if(element.amount > 0){
+      income += element.amount;
+    }
+  });
+  return income;
+}); 
+
+
+const expense = computed ( () => {
+  let expense = 0;
+  dummyTransactions.value.forEach(element => {
+    if(element.amount < 0){
+      expense += element.amount;
+    }
+  });
+  return expense;
+});
+
+
+const addTransaction = (transaction) => {
+  dummyTransactions.value.push(transaction);
+}
 
 </script>
 
@@ -35,8 +64,8 @@ const totalBalance = computed(() => {
   <Header />
   <div class="container">
     <Balance :balance="totalBalance" />
-    <IncomeExpenses />
+    <IncomeExpenses :income="income"  :expense="expense"/>
     <TransactionList :transactions="dummyTransactions" @deleteTransaction="checker" />
-    <AddTransaction />
+    <AddTransaction @transactionAdded="addTransaction"/>
   </div>
 </template>
