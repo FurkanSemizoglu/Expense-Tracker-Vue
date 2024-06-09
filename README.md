@@ -31,4 +31,4 @@ npm run build
 
 ## Screenshot
 
-![Screenshot](https://raw.githubusercontent.com/FurkanSemizoglu/Expense-Tracker-Vue/blob/main/ss1.png)
+![Screenshot](https://raw.githubusercontent.com/FurkanSemizoglu/Expense-Tracker-Vue/main/ss1.png)
