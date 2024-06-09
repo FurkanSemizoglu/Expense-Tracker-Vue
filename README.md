@@ -27,3 +27,8 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+## Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/FurkanSemizoglu/Expense-Tracker-Vue/blob/main/ss-from-app.png)
